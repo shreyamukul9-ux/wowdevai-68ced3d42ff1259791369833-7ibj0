@@ -1,0 +1,279 @@
+<nav class="bg-white shadow-sm sticky top-0 z-40 border-b border-gray-100" data-id="main-navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-id="navbar-container">
+    <div class="flex justify-between items-center h-16" data-id="navbar-content">
+      <!-- Logo -->
+      <div class="flex items-center" data-id="logo-section">
+        <a href="index.html" class="flex items-center space-x-3" data-id="logo-link">
+          <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center" data-id="logo-icon">
+            <i data-lucide="activity" class="w-5 h-5 text-white" data-id="activity-icon"></i>
+          </div>
+          <span class="text-xl font-bold text-gray-900" data-id="logo-text" style="font-family: 'sofia-pro';">AsthmaCare</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8" data-id="desktop-nav">
+        <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium" data-id="nav-home">Home</a>
+        <a href="reports.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium" data-id="nav-reports">My Reports</a>
+        <a href="index.html#air-quality" class="text-gray-700 hover:text-blue-600 transition-colors font-medium" data-id="nav-air-quality">Air Quality</a>
+        <a href="index.html#doctors" class="text-gray-700 hover:text-blue-600 transition-colors font-medium" data-id="nav-doctors">Doctors</a>
+        <a href="index.html#about" class="text-gray-700 hover:text-blue-600 transition-colors font-medium" data-id="nav-about">About</a>
+      </div>
+
+      <!-- Auth Section -->
+      <div class="hidden md:flex items-center space-x-4" data-id="auth-section">
+        <!-- Not Logged In -->
+        <div id="auth-buttons" data-id="auth-buttons" class="flex items-center space-x-3">
+          <a href="login.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium" data-id="login-link">Login</a>
+          <a href="signup.html" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors" data-id="signup-link">Sign Up</a>
+        </div>
+
+        <!-- Logged In User Menu -->
+        <div id="user-menu" data-id="user-menu" class="relative hidden">
+          <button id="user-menu-button" data-id="user-menu-button" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors">
+            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center" data-id="user-avatar">
+              <i data-lucide="user" class="w-4 h-4 text-blue-600" data-id="user-icon"></i>
+            </div>
+            <span id="user-name" data-id="user-name" class="font-medium">User</span>
+            <i data-lucide="chevron-down" class="w-4 h-4" data-id="dropdown-icon"></i>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div id="user-dropdown" data-id="user-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1">
+            <a href="reports.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50" data-id="dropdown-reports">
+              <i data-lucide="file-text" class="w-4 h-4 inline mr-2" data-id="reports-icon"></i>
+              My Reports
+            </a>
+            <a href="index.html#doctors" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50" data-id="dropdown-appointments">
+              <i data-lucide="calendar" class="w-4 h-4 inline mr-2" data-id="calendar-icon"></i>
+              Appointments
+            </a>
+            <div class="border-t border-gray-100"></div>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50" data-id="dropdown-profile">
+              <i data-lucide="settings" class="w-4 h-4 inline mr-2" data-id="settings-icon"></i>
+              Settings
+            </a>
+            <button id="logout-button" data-id="logout-button" class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">
+              <i data-lucide="log-out" class="w-4 h-4 inline mr-2" data-id="logout-icon"></i>
+              Logout
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden" data-id="mobile-menu-section">
+        <button id="mobile-menu-toggle" data-id="mobile-menu-toggle" class="text-gray-700 hover:text-blue-600 transition-colors">
+          <i data-lucide="menu" class="w-6 h-6" data-id="menu-icon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" data-id="mobile-menu" class="hidden md:hidden border-t border-gray-100 pb-4">
+      <div class="pt-4 space-y-2" data-id="mobile-nav-links">
+        <a href="index.html" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors font-medium" data-id="mobile-nav-home">Home</a>
+        <a href="reports.html" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors font-medium" data-id="mobile-nav-reports">My Reports</a>
+        <a href="index.html#air-quality" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors font-medium" data-id="mobile-nav-air-quality">Air Quality</a>
+        <a href="index.html#doctors" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors font-medium" data-id="mobile-nav-doctors">Doctors</a>
+        <a href="index.html#about" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors font-medium" data-id="mobile-nav-about">About</a>
+      </div>
+
+      <!-- Mobile Auth Section -->
+      <div class="pt-4 mt-4 border-t border-gray-100" data-id="mobile-auth-section">
+        <!-- Not Logged In -->
+        <div id="mobile-auth-buttons" data-id="mobile-auth-buttons" class="space-y-2">
+          <a href="login.html" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors font-medium" data-id="mobile-login-link">Login</a>
+          <a href="signup.html" class="block px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors text-center" data-id="mobile-signup-link">Sign Up</a>
+        </div>
+
+        <!-- Logged In User -->
+        <div id="mobile-user-menu" data-id="mobile-user-menu" class="hidden space-y-2">
+          <div class="flex items-center space-x-3 px-4 py-2" data-id="mobile-user-info">
+            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center" data-id="mobile-user-avatar">
+              <i data-lucide="user" class="w-5 h-5 text-blue-600" data-id="mobile-user-icon"></i>
+            </div>
+            <div data-id="mobile-user-details">
+              <p id="mobile-user-name" data-id="mobile-user-name" class="font-medium text-gray-900">User</p>
+              <p id="mobile-user-email" data-id="mobile-user-email" class="text-sm text-gray-500">user@example.com</p>
+            </div>
+          </div>
+          <a href="reports.html" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors" data-id="mobile-dropdown-reports">
+            <i data-lucide="file-text" class="w-4 h-4 inline mr-2" data-id="mobile-reports-icon"></i>
+            My Reports
+          </a>
+          <a href="index.html#doctors" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors" data-id="mobile-dropdown-appointments">
+            <i data-lucide="calendar" class="w-4 h-4 inline mr-2" data-id="mobile-calendar-icon"></i>
+            Appointments
+          </a>
+          <a href="#" class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors" data-id="mobile-dropdown-profile">
+            <i data-lucide="settings" class="w-4 h-4 inline mr-2" data-id="mobile-settings-icon"></i>
+            Settings
+          </a>
+          <button id="mobile-logout-button" data-id="mobile-logout-button" class="block w-full text-left px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors">
+            <i data-lucide="log-out" class="w-4 h-4 inline mr-2" data-id="mobile-logout-icon"></i>
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script type="module">
+  import { auth } from '../config/supabase.js';
+
+  let currentUser = null;
+
+  // Initialize navbar functionality
+  function initNavbar() {
+    initMobileMenu();
+    initUserMenu();
+    initAuthState();
+  }
+
+  function initMobileMenu() {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuToggle && mobileMenu) {
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        
+        const icon = mobileMenuToggle.querySelector('i');
+        if (icon) {
+          const isOpen = !mobileMenu.classList.contains('hidden');
+          icon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+          if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+          }
+        }
+      });
+    }
+  }
+
+  function initUserMenu() {
+    const userMenuButton = document.getElementById('user-menu-button');
+    const userDropdown = document.getElementById('user-dropdown');
+    const logoutButton = document.getElementById('logout-button');
+    const mobileLogoutButton = document.getElementById('mobile-logout-button');
+
+    // Desktop user menu toggle
+    if (userMenuButton && userDropdown) {
+      userMenuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        userDropdown.classList.toggle('hidden');
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!userMenuButton.contains(e.target) && !userDropdown.contains(e.target)) {
+          userDropdown.classList.add('hidden');
+        }
+      });
+    }
+
+    // Logout functionality
+    if (logoutButton) {
+      logoutButton.addEventListener('click', handleLogout);
+    }
+
+    if (mobileLogoutButton) {
+      mobileLogoutButton.addEventListener('click', handleLogout);
+    }
+  }
+
+  async function handleLogout() {
+    try {
+      const result = await auth.signOut();
+      if (result.success) {
+        // Clear any stored user data
+        localStorage.removeItem('remember_user');
+        
+        // Redirect to home page
+        window.location.href = 'index.html';
+      } else {
+        console.error('Logout failed:', result.error);
+        alert('Logout failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Logout error:', error);
+      alert('An error occurred during logout. Please try again.');
+    }
+  }
+
+  async function initAuthState() {
+    // Check current user
+    const result = await auth.getCurrentUser();
+    if (result.success && result.user) {
+      currentUser = result.user;
+      updateNavbarForUser(result.user);
+    }
+
+    // Listen for auth state changes
+    auth.onAuthStateChange((event, session) => {
+      if (session && session.user) {
+        currentUser = session.user;
+        updateNavbarForUser(session.user);
+      } else {
+        currentUser = null;
+        updateNavbarForGuest();
+      }
+    });
+  }
+
+  function updateNavbarForUser(user) {
+    // Hide auth buttons
+    const authButtons = document.getElementById('auth-buttons');
+    const mobileAuthButtons = document.getElementById('mobile-auth-buttons');
+    
+    if (authButtons) authButtons.classList.add('hidden');
+    if (mobileAuthButtons) mobileAuthButtons.classList.add('hidden');
+
+    // Show user menu
+    const userMenu = document.getElementById('user-menu');
+    const mobileUserMenu = document.getElementById('mobile-user-menu');
+    
+    if (userMenu) userMenu.classList.remove('hidden');
+    if (mobileUserMenu) mobileUserMenu.classList.remove('hidden');
+
+    // Update user name and email
+    const userName = user.user_metadata?.full_name || user.email?.split('@')[0] || 'User';
+    
+    const userNameElement = document.getElementById('user-name');
+    const mobileUserNameElement = document.getElementById('mobile-user-name');
+    const mobileUserEmailElement = document.getElementById('mobile-user-email');
+    
+    if (userNameElement) userNameElement.textContent = userName;
+    if (mobileUserNameElement) mobileUserNameElement.textContent = userName;
+    if (mobileUserEmailElement) mobileUserEmailElement.textContent = user.email;
+  }
+
+  function updateNavbarForGuest() {
+    // Show auth buttons
+    const authButtons = document.getElementById('auth-buttons');
+    const mobileAuthButtons = document.getElementById('mobile-auth-buttons');
+    
+    if (authButtons) authButtons.classList.remove('hidden');
+    if (mobileAuthButtons) mobileAuthButtons.classList.remove('hidden');
+
+    // Hide user menu
+    const userMenu = document.getElementById('user-menu');
+    const mobileUserMenu = document.getElementById('mobile-user-menu');
+    
+    if (userMenu) userMenu.classList.add('hidden');
+    if (mobileUserMenu) mobileUserMenu.classList.add('hidden');
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavbar);
+  } else {
+    initNavbar();
+  }
+
+  // Initialize icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+</script>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AsthmaCare - Your Health Companion</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: "sofia-pro", sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-green-50 min-h-screen">
+  <!-- Navbar Container -->
+  <div id="navbar-container" data-source="components/navbar.html" data-id="navbar-wrapper"></div>
+
+  <!-- Main Content -->
+  <main class="pt-20 pb-16" data-id="main-content">
+    <!-- Hero Section -->
+    <section class="py-16 px-4 text-center" data-id="hero-section">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-6" data-id="hero-title">
+          Welcome to <span class="text-blue-600">AsthmaCare+</span>
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto" data-id="hero-description">
+          Your comprehensive health companion for asthma management. Monitor air quality, track your health, and get personalized recommendations.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-id="hero-buttons">
+          <button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors" data-id="check-air-quality-btn" onclick="scrollToAirQuality()">
+            <i data-lucide="wind" class="w-5 h-5 inline mr-2"></i>
+            Check Air Quality in India
+          </button>
+          <button class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors" data-id="upload-report-btn">
+            <i data-lucide="upload" class="w-5 h-5 inline mr-2"></i>
+            Upload Report
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Air Quality Section -->
+    <section id="air-quality-search" class="py-16 px-4 bg-white" data-id="air-quality-section">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-4" data-id="aqi-section-title">
+          Air Quality Monitor
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-8" data-id="search-description">Get instant air quality data for any city across India. Our advanced monitoring system provides AQI, pollutant levels, and personalized health recommendations for all major Indian cities.</p>
+        <div class="max-w-md mx-auto mb-8" data-id="aqi-search-container">
+          <div class="relative">
+            <input 
+              type="text" 
+              id="city-input" 
+              placeholder="Enter Indian city (Delhi, Mumbai, Bangalore, Chennai...)" 
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              data-id="city-search-input"
+            >
+            <button 
+              id="search-btn" 
+              class="absolute right-2 top-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
+              data-id="search-aqi-btn"
+            >
+              <i data-lucide="search" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div id="aqi-results" class="hidden" data-id="aqi-results-container">
+          <div class="bg-white rounded-2xl shadow-xl p-8" data-id="results-container">
+            <!-- AQI Main Display -->
+            <div class="text-center mb-8" data-id="aqi-display">
+              <div class="flex flex-col items-center" data-id="aqi-main">
+                <div class="w-32 h-32 rounded-full border-8 border-gray-300 flex flex-col items-center justify-center mb-4 bg-gray-50" data-id="aqi-circle">
+                  <i data-lucide="wind" class="w-10 h-10 text-blue-500 mb-1" data-id="aqi-icon"></i>
+                  <div class="text-4xl font-bold text-gray-800" data-id="aqi-value">--</div>
+                  <div class="text-sm text-gray-500" data-id="aqi-label">AQI</div>
+                </div>
+                <div class="mt-2" data-id="category-badge-container">
+                  <span class="inline-block px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-600" data-id="category-badge">Loading...</span>
+                </div>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-800 mt-4" data-id="aqi-city">City Name</h3>
+              <p class="text-gray-500 mt-2 text-sm" data-id="last-updated">Last updated: --</p>
+            </div>
+            
+            <!-- AQI Information -->
+            <div class="text-center mb-6" data-id="aqi-info">
+              <p class="text-gray-600 leading-relaxed" data-id="aqi-description">Select a city to view air quality information</p>
+            </div>
+
+            <!-- Pollutants -->
+            <div class="mb-8" data-id="pollutants-section">
+              <h4 class="text-xl font-semibold text-gray-800 mb-4" data-id="pollutants-title">Key Pollutants</h4>
+              <div id="pollutants-data" class="grid grid-cols-2 md:grid-cols-3 gap-4" data-id="pollutants-grid">
+                <!-- Pollutants will be populated here -->
+              </div>
+            </div>
+            
+            <!-- Forecast -->
+            <div class="mb-8" data-id="forecast-section">
+              <h4 class="text-xl font-semibold text-gray-800 mb-4" data-id="forecast-title">Air Quality Forecast</h4>
+              <div id="forecast-data" class="grid grid-cols-2 gap-4" data-id="forecast-grid">
+                <!-- Forecast will be populated here -->
+              </div>
+            </div>
+
+            <!-- Health Recommendations -->
+            <div class="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-6" data-id="recommendations-section">
+              <h4 class="text-xl font-semibold mb-4 text-gray-800" data-id="recommendations-title">
+                <i data-lucide="shield-check" class="w-5 h-5 inline mr-2"></i>
+                Health Recommendations
+              </h4>
+              <p class="text-gray-600 leading-relaxed" data-id="recommendations-text">
+                Personalized advice to protect your health based on the current air quality.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-16 px-4" data-id="features-section">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-id="features-title">
+          Comprehensive Care Features
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-id="features-grid">
+          <!-- Reports Feature -->
+          <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow" data-id="reports-feature-card">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6" data-id="reports-icon-container">
+              <i data-lucide="file-text" class="w-8 h-8 text-blue-600" data-id="reports-icon"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-4" data-id="reports-title">Health Reports</h3>
+            <p class="text-gray-600 mb-6" data-id="reports-description">
+              Upload and manage your medical reports with AI-powered analysis and recommendations.
+            </p>
+            <a href="reports.html" class="text-blue-600 hover:text-blue-700 font-semibold" data-id="reports-link">
+              Manage Reports →
+            </a>
+          </div>
+
+          <!-- Doctor Scheduling -->
+          <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow" data-id="appointments-feature-card">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6" data-id="appointments-icon-container">
+              <i data-lucide="calendar" class="w-8 h-8 text-green-600" data-id="appointments-icon"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-4" data-id="appointments-title">Doctor Appointments</h3>
+            <p class="text-gray-600 mb-6" data-id="appointments-description">
+              Schedule appointments with specialists and receive personalized medical advice.
+            </p>
+            <a href="appointments.html" class="text-green-600 hover:text-green-700 font-semibold" data-id="appointments-link">
+              Book Appointment →
+            </a>
+          </div>
+
+          <!-- AI Chatbot -->
+          <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow" data-id="chatbot-feature-card">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6" data-id="chatbot-icon-container">
+              <i data-lucide="message-circle" class="w-8 h-8 text-purple-600" data-id="chatbot-icon"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-4" data-id="chatbot-title">AI Health Assistant</h3>
+            <p class="text-gray-600 mb-6" data-id="chatbot-description">
+              Get instant answers to your health questions with our intelligent chatbot.
+            </p>
+            <button id="open-chatbot" class="text-purple-600 hover:text-purple-700 font-semibold" data-id="chatbot-open-btn">
+              Start Chat →
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Container -->
+  <div id="footer-container" data-source="components/footer.html" data-id="footer-wrapper"></div>
+
+  <!-- Badge Container -->
+  <div id="badge-container" data-source="components/badge.html" data-id="badge-wrapper"></div>
+
+  <!-- Chatbot Container -->
+  <div id="chatbot-container" data-id="chatbot-container"></div>
+
+  <!-- Scripts -->
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    import { initAirQuality } from './scripts/air-quality.js';
+    import { initChatbot } from './scripts/chatbot.js';
+    
+    // Scroll to air quality section
+    window.scrollToAirQuality = function() {
+      const element = document.getElementById('air-quality-search');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+    
+    // Load all shared components
+    loadComponent('#navbar-container');
+    loadComponent('#footer-container');
+    loadComponent('#badge-container');
+    
+    // Initialize features
+    initAirQuality();
+    initChatbot();
+    
+    // Initialize icons after components are loaded
+    setTimeout(() => {
+      lucide.createIcons();
+    }, 100);
+  </script>
+</body>
+</html>

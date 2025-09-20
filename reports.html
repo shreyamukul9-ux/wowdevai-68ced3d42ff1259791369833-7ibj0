@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Reports - AsthmaCare</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: "sofia-pro", sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-green-50 min-h-screen">
+  <!-- Navbar Container -->
+  <div id="navbar-container" data-source="components/navbar.html" data-id="navbar-wrapper"></div>
+
+  <!-- Main Content -->
+  <main class="pt-20 pb-16" data-id="main-content">
+    <!-- Header Section -->
+    <section class="py-12 px-4" data-id="reports-header">
+      <div class="max-w-6xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6" data-id="reports-title">
+          <i data-lucide="file-text" class="w-12 h-12 inline mr-4 text-blue-600" data-id="reports-icon"></i>
+          Health Reports
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-id="reports-description">
+          Upload, manage, and get AI-powered analysis of your medical reports and test results.
+        </p>
+      </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="py-12 px-4" data-id="upload-section">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-sm p-8" data-id="upload-card">
+          <h2 class="text-2xl font-bold text-gray-800 mb-6" data-id="upload-title">
+            Upload New Report
+          </h2>
+          
+          <!-- Upload Area -->
+          <div class="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-blue-400 transition-colors" data-id="upload-dropzone" id="upload-dropzone">
+            <div class="space-y-4" data-id="upload-content">
+              <div class="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center" data-id="upload-icon-container">
+                <i data-lucide="upload-cloud" class="w-8 h-8 text-blue-600" data-id="upload-cloud-icon"></i>
+              </div>
+              <div data-id="upload-text">
+                <p class="text-lg font-semibold text-gray-700" data-id="upload-main-text">
+                  Drop your files here or click to browse
+                </p>
+                <p class="text-gray-500" data-id="upload-sub-text">
+                  Supports PDF, JPG, PNG files up to 10MB
+                </p>
+              </div>
+              <input type="file" id="file-input" class="hidden" accept=".pdf,.jpg,.jpeg,.png" multiple data-id="file-input">
+              <button type="button" id="browse-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors" data-id="browse-button">
+                Choose Files
+              </button>
+            </div>
+          </div>
+
+          <!-- Upload Progress -->
+          <div id="upload-progress" class="hidden mt-6" data-id="upload-progress-container">
+            <div class="bg-gray-200 rounded-full h-2" data-id="progress-bar-bg">
+              <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%" data-id="progress-bar-fill"></div>
+            </div>
+            <p class="text-sm text-gray-600 mt-2" data-id="progress-text">Uploading... 0%</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reports List -->
+    <section class="py-12 px-4" data-id="reports-list-section">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8" data-id="my-reports-title">
+          My Reports
+        </h2>
+        
+        <div id="reports-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-id="reports-grid">
+          <!-- Sample report cards will be dynamically added here -->
+          <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow" data-id="sample-report-1">
+            <div class="flex items-center justify-between mb-4" data-id="report-header">
+              <div class="flex items-center space-x-3" data-id="report-info">
+                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center" data-id="report-type-icon">
+                  <i data-lucide="heart-pulse" class="w-5 h-5 text-red-600" data-id="blood-test-icon"></i>
+                </div>
+                <div data-id="report-details">
+                  <h3 class="font-semibold text-gray-800" data-id="report-name">Blood Test Results</h3>
+                  <p class="text-sm text-gray-500" data-id="report-date">March 15, 2024</p>
+                </div>
+              </div>
+              <button class="text-gray-400 hover:text-gray-600" data-id="report-menu-btn">
+                <i data-lucide="more-vertical" class="w-5 h-5" data-id="more-icon"></i>
+              </button>
+            </div>
+            
+            <div class="mb-4" data-id="report-status">
+              <span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full" data-id="analysis-status">
+                ✓ Analysis Complete
+              </span>
+            </div>
+            
+            <p class="text-gray-600 text-sm mb-4" data-id="report-summary">
+              Your blood work shows normal levels across all key markers. Iron levels are slightly low - consider iron-rich foods.
+            </p>
+            
+            <div class="flex space-x-2" data-id="report-actions">
+              <button class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm font-semibold transition-colors" data-id="view-report-btn">
+                View Report
+              </button>
+              <button class="px-4 py-2 border border-gray-300 hover:bg-gray-50 rounded-lg text-sm font-semibold transition-colors" data-id="download-btn">
+                <i data-lucide="download" class="w-4 h-4" data-id="download-icon"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Sample report 2 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow" data-id="sample-report-2">
+            <div class="flex items-center justify-between mb-4" data-id="report-header-2">
+              <div class="flex items-center space-x-3" data-id="report-info-2">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center" data-id="chest-xray-icon-container">
+                  <i data-lucide="scan" class="w-5 h-5 text-blue-600" data-id="chest-xray-icon"></i>
+                </div>
+                <div data-id="report-details-2">
+                  <h3 class="font-semibold text-gray-800" data-id="xray-report-name">Chest X-Ray</h3>
+                  <p class="text-sm text-gray-500" data-id="xray-report-date">March 10, 2024</p>
+                </div>
+              </div>
+              <button class="text-gray-400 hover:text-gray-600" data-id="xray-menu-btn">
+                <i data-lucide="more-vertical" class="w-5 h-5" data-id="xray-more-icon"></i>
+              </button>
+            </div>
+            
+            <div class="mb-4" data-id="xray-status">
+              <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-medium rounded-full" data-id="xray-analysis-status">
+                ⏳ Analysis in Progress
+              </span>
+            </div>
+            
+            <p class="text-gray-600 text-sm mb-4" data-id="xray-summary">
+              Chest X-ray uploaded successfully. Our AI is analyzing the images for any abnormalities.
+            </p>
+            
+            <div class="flex space-x-2" data-id="xray-actions">
+              <button class="flex-1 bg-gray-100 text-gray-500 py-2 px-4 rounded-lg text-sm font-semibold cursor-not-allowed" data-id="xray-view-btn" disabled>
+                Analysis Pending
+              </button>
+              <button class="px-4 py-2 border border-gray-300 hover:bg-gray-50 rounded-lg text-sm font-semibold transition-colors" data-id="xray-download-btn">
+                <i data-lucide="download" class="w-4 h-4" data-id="xray-download-icon"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Sample report 3 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow" data-id="sample-report-3">
+            <div class="flex items-center justify-between mb-4" data-id="spirometry-header">
+              <div class="flex items-center space-x-3" data-id="spirometry-info">
+                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center" data-id="spirometry-icon-container">
+                  <i data-lucide="activity" class="w-5 h-5 text-green-600" data-id="spirometry-icon"></i>
+                </div>
+                <div data-id="spirometry-details">
+                  <h3 class="font-semibold text-gray-800" data-id="spirometry-name">Spirometry Test</h3>
+                  <p class="text-sm text-gray-500" data-id="spirometry-date">March 8, 2024</p>
+                </div>
+              </div>
+              <button class="text-gray-400 hover:text-gray-600" data-id="spirometry-menu-btn">
+                <i data-lucide="more-vertical" class="w-5 h-5" data-id="spirometry-more-icon"></i>
+              </button>
+            </div>
+            
+            <div class="mb-4" data-id="spirometry-status">
+              <span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full" data-id="spirometry-analysis-status">
+                ✓ Analysis Complete
+              </span>
+            </div>
+            
+            <p class="text-gray-600 text-sm mb-4" data-id="spirometry-summary">
+              Lung function test shows good capacity. FEV1 is within normal range for your age group. Continue current medication regimen.
+            </p>
+            
+            <div class="flex space-x-2" data-id="spirometry-actions">
+              <button class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm font-semibold transition-colors" data-id="spirometry-view-btn">
+                View Report
+              </button>
+              <button class="px-4 py-2 border border-gray-300 hover:bg-gray-50 rounded-lg text-sm font-semibold transition-colors" data-id="spirometry-download-btn">
+                <i data-lucide="download" class="w-4 h-4" data-id="spirometry-download-icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Empty State (initially hidden) -->
+        <div id="empty-state" class="hidden text-center py-16" data-id="empty-reports-state">
+          <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6" data-id="empty-state-icon">
+            <i data-lucide="folder-open" class="w-12 h-12 text-gray-400" data-id="empty-folder-icon"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-4" data-id="empty-state-title">
+            No reports uploaded yet
+          </h3>
+          <p class="text-gray-600 mb-6" data-id="empty-state-description">
+            Upload your first medical report to get started with AI-powered analysis.
+          </p>
+          <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors" data-id="empty-state-upload-btn">
+            Upload Your First Report
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Container -->
+  <div id="footer-container" data-source="components/footer.html" data-id="footer-wrapper"></div>
+
+  <!-- Badge Container -->
+  <div id="badge-container" data-source="components/badge.html" data-id="badge-wrapper"></div>
+
+  <!-- Chatbot Container -->
+  <div id="chatbot-container" data-id="chatbot-container"></div>
+
+  <!-- Scripts -->
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    import { initReports } from './scripts/reports.js';
+    import { initChatbot } from './scripts/chatbot.js';
+    
+    // Load all shared components
+    loadComponent('#navbar-container');
+    loadComponent('#footer-container');
+    loadComponent('#badge-container');
+    
+    // Initialize page functionality
+    initReports();
+    initChatbot();
+    
+    // Initialize icons after components are loaded
+    setTimeout(() => {
+      lucide.createIcons();
+    }, 100);
+  </script>
+</body>
+</html>

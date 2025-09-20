@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - AsthmaCare</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: "sofia-pro", sans-serif; }
+    .signup-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .glass-morphism {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body class="signup-bg min-h-screen flex items-center justify-center p-4">
+  <!-- Signup Container -->
+  <div class="w-full max-w-md" data-id="signup-container">
+    <!-- Logo Section -->
+    <div class="text-center mb-8" data-id="signup-header">
+      <div class="mx-auto w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4" data-id="logo-container">
+        <i data-lucide="heart-pulse" class="w-8 h-8 text-blue-600" data-id="logo-icon"></i>
+      </div>
+      <h1 class="text-3xl font-bold text-white mb-2" data-id="app-title">AsthmaCare</h1>
+      <p class="text-blue-100" data-id="app-subtitle">Join us for better health management</p>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="glass-morphism rounded-2xl p-8 shadow-2xl" data-id="signup-form-container">
+      <div class="mb-6" data-id="form-header">
+        <h2 class="text-2xl font-bold text-white mb-2" data-id="form-title">Create Account</h2>
+        <p class="text-blue-100" data-id="form-subtitle">Start your journey to better breathing</p>
+      </div>
+
+      <form id="signup-form" data-id="signup-form">
+        <!-- Full Name Field -->
+        <div class="mb-4" data-id="name-field">
+          <label for="fullName" class="block text-white font-semibold mb-2" data-id="name-label">Full Name</label>
+          <div class="relative" data-id="name-input-container">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none" data-id="name-icon-container">
+              <i data-lucide="user" class="w-5 h-5 text-gray-400" data-id="name-icon"></i>
+            </div>
+            <input 
+              type="text" 
+              id="fullName" 
+              name="fullName"
+              class="w-full pl-10 pr-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent" 
+              placeholder="Enter your full name"
+              required
+              data-id="name-input"
+            >
+          </div>
+        </div>
+
+        <!-- Email Field -->
+        <div class="mb-4" data-id="email-field">
+          <label for="email" class="block text-white font-semibold mb-2" data-id="email-label">Email Address</label>
+          <div class="relative" data-id="email-input-container">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none" data-id="email-icon-container">
+              <i data-lucide="mail" class="w-5 h-5 text-gray-400" data-id="email-icon"></i>
+            </div>
+            <input 
+              type="email" 
+              id="email" 
+              name="email"
+              class="w-full pl-10 pr-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent" 
+              placeholder="Enter your email"
+              required
+              data-id="email-input"
+            >
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="mb-4" data-id="password-field">
+          <label for="password" class="block text-white font-semibold mb-2" data-id="password-label">Password</label>
+          <div class="relative" data-id="password-input-container">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none" data-id="password-icon-container">
+              <i data-lucide="lock" class="w-5 h-5 text-gray-400" data-id="password-icon"></i>
+            </div>
+            <input 
+              type="password" 
+              id="password" 
+              name="password"
+              class="w-full pl-10 pr-12 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent" 
+              placeholder="Create a password"
+              required
+              data-id="password-input"
+            >
+            <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" data-id="password-toggle">
+              <i data-lucide="eye" class="w-5 h-5 text-gray-400 hover:text-white transition-colors" data-id="password-toggle-icon"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Confirm Password Field -->
+        <div class="mb-6" data-id="confirm-password-field">
+          <label for="confirmPassword" class="block text-white font-semibold mb-2" data-id="confirm-password-label">Confirm Password</label>
+          <div class="relative" data-id="confirm-password-input-container">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none" data-id="confirm-password-icon-container">
+              <i data-lucide="lock" class="w-5 h-5 text-gray-400" data-id="confirm-password-icon"></i>
+            </div>
+            <input 
+              type="password" 
+              id="confirmPassword" 
+              name="confirmPassword"
+              class="w-full pl-10 pr-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent" 
+              placeholder="Confirm your password"
+              required
+              data-id="confirm-password-input"
+            >
+          </div>
+        </div>
+
+        <!-- Terms Checkbox -->
+        <div class="mb-6" data-id="terms-section">
+          <label class="flex items-start" data-id="terms-checkbox-container">
+            <input type="checkbox" class="w-4 h-4 text-blue-600 bg-white/20 border-white/30 rounded focus:ring-blue-500 mt-1" required data-id="terms-checkbox">
+            <span class="ml-3 text-white text-sm leading-5" data-id="terms-text">
+              I agree to the 
+              <a href="#" class="text-blue-200 hover:text-white underline" data-id="terms-link">Terms of Service</a> and 
+              <a href="#" class="text-blue-200 hover:text-white underline" data-id="privacy-link">Privacy Policy</a>
+            </span>
+          </label>
+        </div>
+
+        <!-- Signup Button -->
+        <button 
+          type="submit" 
+          class="w-full bg-white text-blue-600 font-bold py-3 px-4 rounded-lg hover:bg-blue-50 transition-colors transform hover:scale-105 duration-200 shadow-lg"
+          data-id="signup-button"
+        >
+          Create Account
+        </button>
+
+        <!-- Divider -->
+        <div class="my-6" data-id="divider-container">
+          <div class="relative" data-id="divider">
+            <div class="absolute inset-0 flex items-center" data-id="divider-line-container">
+              <div class="w-full border-t border-white/30" data-id="divider-line"></div>
+            </div>
+            <div class="relative flex justify-center text-sm" data-id="divider-text-container">
+              <span class="px-2 bg-transparent text-white" data-id="divider-text">Or sign up with</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Signup -->
+        <div class="space-y-3" data-id="social-signup">
+          <button type="button" class="w-full flex items-center justify-center px-4 py-3 bg-white/20 border border-white/30 rounded-lg hover:bg-white/30 transition-colors" data-id="google-signup">
+            <svg class="w-5 h-5 mr-3" viewBox="0 0 24 24" data-id="google-icon">
+              <path fill="#EA4335" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            <span class="text-white font-medium" data-id="google-text">Continue with Google</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Login Link -->
+      <div class="mt-8 text-center" data-id="login-section">
+        <p class="text-blue-100" data-id="login-text">
+          Already have an account? 
+          <a href="login.html" class="text-white font-semibold hover:underline" data-id="login-link">Sign in</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50" data-id="loading-overlay">
+    <div class="bg-white rounded-lg p-6 text-center" data-id="loading-content">
+      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4" data-id="loading-spinner"></div>
+      <p class="text-gray-700" data-id="loading-text">Creating your account...</p>
+    </div>
+  </div>
+
+  <!-- Badge Component -->
+  <div id="badge-container" data-source="components/badge.html" data-id="badge-container"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    
+    // Load badge component
+    loadComponent('#badge-container');
+    
+    // Initialize signup functionality
+    import('./scripts/auth/signup.js').then(module => {
+      module.initSignup();
+    });
+    
+    // Initialize icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
